@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -8,25 +9,19 @@ const app = express();
 
 app.use(cors());
 
-
 // Config Json
 app.use(express.json())
 
-//Models.
+//Models
 const User = require('./models/User')
 
 // Public route
-const path = require('path');
-
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src', 'index.html'));
-});
-
-// ...
-
+    res.status(200).json({ msg: 'Bem Vindo ao Meu Servidor'})
+})
 
 // Servir arquivos estáticos (Frontend)
-app.use(express.static(path.join(__dirname, 'src')));
+app.use(express.static(path.join(__dirname, 'src', 'public')));
 
 //Private Route
 app.get('/user/:id', checkToken, async (req, res) => {
