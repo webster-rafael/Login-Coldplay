@@ -168,7 +168,7 @@ mongoose
   })
   .catch((err) => console.log(err));
 
-  mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.7vaoq0p.mongodb.net/websterdev`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+  const db = mongoose.connection;
+db.once('open', () => {
+  // Execute operações no banco de dados aqui
 });
