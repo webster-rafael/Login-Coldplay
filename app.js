@@ -167,3 +167,8 @@ mongoose
     console.log('Conectado ao Banco de Dados');
   })
   .catch((err) => console.log(err));
+
+  mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.7vaoq0p.mongodb.net/websterdev`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
