@@ -162,9 +162,8 @@ const dbUser = process.env.DB_USER
 const dbPassword = process.env.DB_PASS
 
 mongoose
-.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.7vaoq0p.mongodb.net/?retryWrites=true&w=majority`,)
-.then(() => {
-    app.listen(3000)
-    console.log('Conectado ao Banco de Dados')
-})
-.catch((err) => console.log(err))
+  .connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.7vaoq0p.mongodb.net/?retryWrites=true&w=majority`,)
+  .then(() => {
+    console.log('Conectado ao Banco de Dados');
+  })
+  .catch((err) => console.log(err));
