@@ -1,6 +1,5 @@
 require('dotenv').config()
 const express = require('express');
-const path = require('path');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -20,8 +19,6 @@ app.get('/', (req, res) => {
     res.status(200).json({ msg: 'Bem Vindo ao Meu Servidor'})
 })
 
-// Servir arquivos estáticos (Frontend)
-app.use(express.static(path.join(__dirname, 'src', 'public')));
 
 //Private Route
 app.get('/user/:id', checkToken, async (req, res) => {
